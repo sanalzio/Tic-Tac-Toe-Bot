@@ -1,5 +1,7 @@
 # Tic-Tac-Toe Bot
 
+[<img src="https://img.shields.io/badge/Join Server-3070ed.svg?&style=for-the-badge&logo=discord&logoColor=white" alt="Discord bot server" style="margin-bottom: 7px;border-radius: 7px" />](https://discord.gg/uUvPJNbbYG)
+
 - [Tic-Tac-Toe Bot](#tic-tac-toe-bot)
   - [CLI](#cli)
     - [Usage](#usage)
@@ -8,8 +10,6 @@
     - [Play](#play)
       - [AI mode](#ai-mode)
       - [Simple mode](#simple-mode)
-
-[<img src="https://img.shields.io/badge/Join Server-3070ed.svg?&style=for-the-badge&logo=discord&logoColor=white" alt="Discord bot server" style="margin-bottom: 7px;border-radius: 7px" />](https://discord.gg/uUvPJNbbYG)
 
 ## CLI
 ### Usage
