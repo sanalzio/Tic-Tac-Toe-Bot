@@ -1,0 +1,5 @@
+token:TOKEN
+prefixs:xox 
+status:use 'xox play'
+ActivityType:playing
+invite:https://discord.com/oauth2/authorize?client_id=1164232238246924439&scope=bot&permissions=1074031680
