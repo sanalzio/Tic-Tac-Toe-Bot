@@ -3,12 +3,17 @@
 import discord
 import modules.PyDB as PyDB
 import asyncio
+# import os
+# from keep_alive import keep_alive
 
 # * Vars
 # Bot Vars
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
+hembed=discord.Embed(title="Tic-Tac-Toe Bot help", color=0x349F4F, )
+hembed.add_field(name="Commands:",value="__`xox play`__ play with ai or use `xox play easy` to play in easy mode\n\n__`xox help`__ view this menu or use `xox?`", inline=False)
+hembed.set_thumbnail(url="https://repository-images.githubusercontent.com/707530353/e59ca42a-750b-470b-8207-9f6c807fd251")
 # Config Vars
 config = PyDB.pydb("database/config")
 
@@ -141,15 +146,13 @@ async def on_ready():
 @client.event
 async def on_message(message):
     prefix = "xox "
+    if message.content.lower()=="xox?": await message.reply(embed=hembed); return
     try:
         arg = message.content.split(" ")[1:]
         cmd= message.content.split(" ")[1]
-    except IndexError:
-        pass
-    if message.author.id == client.user.id:
-        return
-    if not message.content.startswith(prefix):
-        return
+    except IndexError: pass
+    if message.author.id == client.user.id: return
+    if not message.content.lower().startswith(prefix): return
     if cmd.lower()=="play":
         new_msg = await message.reply(board2msg(["-", "-", "-", "-", "-", "-", "-", "-", "-"]), mention_author=True)
         await new_msg.add_reaction("1️⃣")
@@ -163,12 +166,13 @@ async def on_message(message):
         await new_msg.add_reaction("9️⃣")
         await new_msg.add_reaction("❌")
         if len(arg)>1:
-            if arg[1].lower()=="simple":
+            if arg[1].lower()=="easy":
                 await main(message, new_msg, True)
         else: await main(message, new_msg)
+    if cmd.lower()=="help": await message.reply(embed=hembed)
 
 # On Reaction Function
-@client.event
+'''@client.event
 async def on_raw_reaction_add(payload):
     channel = await client.fetch_channel(payload.channel_id)
     message = await channel.fetch_message(payload.message_id)
@@ -182,6 +186,9 @@ async def on_raw_reaction_add(payload):
     else:
         db.addData(str(user.id)+"input", str(emoji).replace("1️⃣", "1").replace("2️⃣", "2").replace("3️⃣", "3").replace("4️⃣", "4").replace("5️⃣", "5").replace("6️⃣", "6").replace("7️⃣", "7").replace("8️⃣", "8").replace("9️⃣", "9"))
 """
+'''
 
 # * Run Bot
+# keep_alive()
+# TOKEN = os.environ.get("TOKEN")
 client.run(config.token)

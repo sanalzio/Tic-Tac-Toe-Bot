@@ -9,7 +9,7 @@
     - [Invite bot](#invite-bot)
     - [Play](#play)
       - [AI mode](#ai-mode)
-      - [Simple mode](#simple-mode)
+      - [Easy mode](#easy-mode)
 
 ## CLI
 ### Usage
@@ -22,5 +22,5 @@
 ### Play
 #### AI mode
 **use** `xox play`
-#### Simple mode
-**use** `xox play simple`
+#### Easy mode
+**use** `xox play easy`
