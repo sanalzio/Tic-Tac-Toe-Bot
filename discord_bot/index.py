@@ -1,6 +1,6 @@
 # --------------------- Main --------------------- #
 # * Imports
-import discord
+import disnake as discord
 import modules.PyDB as PyDB
 import asyncio
 # import os
